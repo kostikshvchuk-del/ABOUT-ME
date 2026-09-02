@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yumi_loom — Мэрия RPM | RPM ROLEPLAY SOUTH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070A13;
+  --card:#12162A;
+  --border:rgba(255,255,255,0.08);
+  --blurple:#5865F2;
+  --pink:#FF2E93;
+  --cyan:#00D9FF;
+  --text:#EAF0FF;
+  --muted:#9AA4C7;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.bg-glow{position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(700px 500px at 20% 10%, rgba(88,101,242,0.25), transparent 60%),radial-gradient(800px 600px at 90% 20%, rgba(255,46,147,0.18), transparent 60%),radial-gradient(600px 500px at 50% 90%, rgba(0,217,255,0.12), transparent 60%);}
+nav{max-width:1200px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800}
+.logo-mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--blurple),var(--pink));display:grid;place-items:center;font-family:'Unbounded',sans-serif;font-size:15px;box-shadow:0 10px 30px rgba(88,101,242,0.4);overflow:hidden}
+.logo-mark img{width:100%;height:100%;object-fit:cover}
+.logo span b{color:var(--muted);font-weight:600;font-size:11px;display:block;margin-top:2px;letter-spacing:0.12em;text-transform:uppercase}
+.nav-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.pill{padding:9px 16px;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);font-size:13px;font-weight:600;color:var(--muted)}
+.pill.primary{background:var(--blurple);color:white;border-color:transparent;box-shadow:0 8px 20px rgba(88,101,242,0.35)}
+.hero{max-width:1200px;margin:22px auto 0;padding:0 24px;display:grid;grid-template-columns:1.15fr 0.85fr;gap:24px}
+@media(max-width:900px){.hero{grid-template-columns:1fr}}
+.server-card{background:linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));border:1px solid var(--border);border-radius:28px;overflow:hidden;position:relative}
+.server-banner{height:170px;background:linear-gradient(90deg, rgba(7,10,19,0.25), rgba(7,10,19,0.65)), url('https://rpmserver.com/uploads/southbackground3.png');background-size:cover;background-position:center;position:relative}
+.server-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, transparent 30%, rgba(7,10,19,0.92) 85%)}
+.hero-char{position:absolute;right:10px;bottom:-12px;width:220px;height:180px;background:url('https://rpmserver.com/uploads/hero-south.png') no-repeat center bottom;background-size:contain;z-index:1;filter:drop-shadow(0 12px 20px rgba(0,0,0,0.6));pointer-events:none}
+@media(max-width:600px){.hero-char{width:150px;opacity:0.9}}
+.server-top{display:flex;gap:16px;padding:0 26px;margin-top:-42px;position:relative;z-index:2;align-items:end}
+.avatar{width:96px;height:96px;border-radius:24px;background:#0F1230;border:4px solid #0F1230;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,0.4);flex-shrink:0}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.server-info{padding:16px 26px 22px}
+.server-info h1{font-family:'Unbounded',sans-serif;font-size:28px;line-height:1.1}
+.server-info h1 span{font-size:11px;color:var(--cyan);letter-spacing:0.14em;display:block;margin-bottom:6px}
+.server-info p{color:var(--muted);font-size:14.5px;line-height:1.6;margin-top:10px}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid var(--border);padding:8px 12px;border-radius:999px;font-size:12.5px;font-weight:600;backdrop-filter:blur(6px)}
+.dot{width:8px;height:8px;border-radius:50%;background:#23A559;box-shadow:0 0 10px #23A559;animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+.btn-row{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+.btn{padding:13px 20px;border-radius:14px;font-weight:700;font-size:14px;border:1px solid var(--border);display:inline-flex;align-items:center;gap:9px;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-blurple{background:var(--blurple);color:white;border-color:transparent;box-shadow:0 10px 24px rgba(88,101,242,0.4)}
+.btn-ghost{background:rgba(255,255,255,0.06);color:white}
+.side-col{display:flex;flex-direction:column;gap:24px}
+.profile-card{background:linear-gradient(180deg, rgba(26,32,64,0.9), rgba(18,22,42,0.95));border:1px solid var(--border);border-radius:28px;padding:24px;position:relative;overflow:hidden}
+.profile-card::before{content:"";position:absolute;inset:0;background:radial-gradient(400px 200px at 80% 0%, rgba(255,46,147,0.18), transparent 60%);pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--cyan);font-weight:800;position:relative}
+.profile-head{display:flex;gap:16px;align-items:center;margin-top:14px;position:relative}
+.pfp{width:76px;height:76px;border-radius:22px;overflow:hidden;border:2px solid rgba(255,255,255,0.12);box-shadow:0 8px 22px rgba(0,0,0,0.35);flex-shrink:0;background:#0f132e}
+.pfp img{width:100%;height:100%;object-fit:cover}
+.profile-head h2{font-family:'Unbounded',sans-serif;font-size:22px;line-height:1}
+.profile-head h2 i{font-style:normal;font-size:13px;color:var(--muted);font-family:'Manrope',sans-serif;font-weight:600;display:block;margin-top:4px}
+.profile-tag{display:inline-flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.tag{font-size:11px;padding:5px 9px;border-radius:999px;background:rgba(255,255,255,0.07);border:1px solid var(--border);color:var(--muted);font-weight:700}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.stat{background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:16px;padding:14px;position:relative}
+.stat label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.stat b{font-size:15px;display:block;margin-top:4px}
+.love-card{background:linear-gradient(135deg, rgba(255,46,147,0.18), rgba(88,101,242,0.18));border:1px solid rgba(255,46,147,0.25);border-radius:20px;padding:14px;display:flex;align-items:center;gap:14px;margin-top:16px;position:relative}
+.love-pfp{width:54px;height:54px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,46,147,0.4);flex-shrink:0}
+.love-pfp img{width:100%;height:100%;object-fit:cover}
+.love-card p{font-size:13px;line-height:1.4}
+.love-card p b{color:white}
+.love-card p span{color:var(--muted)}
+.divider{height:1px;background:var(--border);margin:18px 0}
+.widget-card{background:var(--card);border:1px solid var(--border);border-radius:28px;padding:18px;overflow:hidden}
+.widget-card h3{font-size:15px;font-weight:800;display:flex;align-items:center;gap:8px}
+.widget-frame{margin-top:14px;border-radius:16px;overflow:hidden;border:1px solid var(--border);background:#0E1130;height:340px}
+.widget-frame iframe{width:100%;height:100%;border:0}
+.online-live{font-size:11px;color:var(--muted);margin-top:10px;text-align:center}
+.online-live b{color:#23A559}
+.section{max-width:1200px;margin:34px auto;padding:0 24px}
+.section h2{font-family:'Unbounded',sans-serif;font-size:22px}
+.section h2 em{font-style:normal;color:var(--muted);font-family:'Manrope',sans-serif;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;display:block;margin-bottom:6px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+@media(max-width:900px){.grid3{grid-template-columns:1fr}}
+.feat{background:rgba(255,255,255,0.04);border:1px solid var(--border);border-radius:20px;padding:20px;overflow:hidden;position:relative}
+.feat-img{width:100%;height:140px;border-radius:14px;overflow:hidden;margin-bottom:12px;border:1px solid var(--border)}
+.feat-img img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.feat:hover .feat-img img{transform:scale(1.05)}
+.feat h4{font-size:15px}
+.feat p{font-size:13.5px;color:var(--muted);line-height:1.6;margin-top:6px}
+footer{max-width:1200px;margin:30px auto;padding:18px 24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+footer a{color:white;font-weight:600}
+</style>
+</head>
+<body>
+<div class="bg-glow"></div>
+<nav>
+  <div class="logo">
+    <div class="logo-mark"><img src="https://rpmserver.com/uploads/ava-south-2.png" alt="RPM"></div>
+    <div id="logoText">Мэрия RPM <span><b>RPM ROLEPLAY SOUTH • rpmserver.com</b></span></div>
+  </div>
+  <div class="nav-links">
+    <button id="langBtn" class="pill" onclick="toggleLang()" title="Переключить язык / Перемкнути мову" style="cursor:pointer">🇺🇦 UA</button>
+    <a class="pill" href="https://rpmserver.com/roleplay-south" target="_blank">🌐 rpmserver.com/roleplay-south</a>
+    <a class="pill primary" href="https://discord.gg/rpmroleplay" target="_blank">Discord</a>
+  </div>
+</nav>
+<div class="hero">
+  <div class="server-card">
+    <div class="server-banner"><div class="hero-char"></div></div>
+    <div class="server-top">
+      <div class="avatar"><img src="https://rpmserver.com/uploads/ava-south-2.png" alt="RPM SOUTH"></div>
+      <div style="padding-bottom:6px">
+        <div style="font-size:11px;font-weight:800;letter-spacing:0.12em;color:var(--cyan)">OFFICIAL SERVER • SOUTH</div>
+        <div style="font-family:'Unbounded',sans-serif;font-size:12px;opacity:0.85">1511434759664828518</div>
+      </div>
+    </div>
+    <div class="server-info">
+      <h1 id="serverTitle"><span>— DISCORD SENSOR STYLE —</span>Мэрия RPM</h1>
+      <p id="serverDesc">Официальный Discord сервер <b style="color:white">RPM ROLEPLAY SOUTH</b> — крупнейший сервер в RP сфере по Minecraft. IP: <b style="color:white">mc.rpmserver.com</b></p>
+      <div class="meta">
+        <span class="chip"><span class="dot"></span> <span id="onlineCount">загрузка...</span> Online</span>
+        <span class="chip">📊 <span id="totalCount">—</span> <span id="slotsWord">слотов</span></span>
+        <span class="chip">🎮 RPM SOUTH</span>
+        <span class="chip" id="flagChip">🇷🇺 RU</span>
+      </div>
+      <p id="onlineUpdate" style="font-size:11px;color:var(--muted);margin-top:8px">🔄 live с rpmserver.com — обновление каждые 30с</p>
+      <div class="btn-row">
+        <a id="joinBtn" class="btn btn-blurple" href="https://discord.gg/rpmroleplay" target="_blank">Присоединиться к Discord →</a>
+        <a id="playBtn" class="btn btn-ghost" href="https://rpmserver.com/roleplay-south" target="_blank">↗ Играть на SOUTH</a>
+        <a class="btn btn-ghost" href="https://discord-sensor.com/servers/1511434759664828518" target="_blank">🔍 Sensor</a>
+      </div>
+    </div>
+  </div>
+  <div class="side-col">
+    <div class="profile-card">
+      <div class="badge">✦ ABOUT ME</div>
+      <div class="profile-head">
+        <div class="pfp"><img src="../image/avatar.png" alt="Yumi_loom" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop'"></div>
+        <div>
+          <h2>Yumi_loom <i>Kostiantyn • 16 years</i></h2>
+          <div class="profile-tag"><span class="tag">🏛️ Мэрия RPM</span><span class="tag" id="judgeTag" style="background:rgba(255,215,0,0.12);border-color:rgba(255,215,0,0.3);color:#FFD700">⚖️ Судья</span><span class="tag">yumi_loom</span></div>
+        </div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat"><label>Nickname</label><b>Yumi_loom</b></div>
+        <div class="stat"><label>Имя</label><b>Kostiantyn</b></div>
+        <div class="stat"><label>Вік</label><b>16 years</b></div>
+        <div class="stat"><label>Discord</label><b>yumi_loom</b></div>
+        <div class="stat" style="grid-column: span 2; background: linear-gradient(135deg, rgba(255,215,0,0.14), rgba(255,140,0,0.08)); border-color: rgba(255,215,0,0.3)"><label id="posLabel">Должность</label><b id="posValue">⚖️ Судья</b></div>
+      </div>
+      <div class="love-card">
+        <div class="love-pfp"><img src="../image/mariam.png" alt="mariam" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop'"></div>
+        <p><b>mariam023358</b> <span>— my girl ♡</span></p>
+      </div>
+      <div class="divider"></div>
+      <p id="profileHello" style="font-size:13.5px;color:var(--muted);line-height:1.6">Привет! Я <b style="color:white">Yumi_loom</b> из Мэрии RPM. Это моя визитка.</p>
+      <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap">
+        <a id="copyBtn" class="btn btn-blurple" style="padding:10px 16px;font-size:13px" href="#" onclick="navigator.clipboard.writeText('Yumi_loom');alert(curLang==='uk'?'Скопійовано: Yumi_loom':'Скопировано: Yumi_loom');return false">📋 Копировать ник</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+<footer>
+  <div>© 2026 <b style="color:white">Yumi_loom</b> • Kostiantyn, 16</div>
+  <div><a href="https://discord-sensor.com/servers/1511434759664828518" target="_blank">discord-sensor.com</a> • <a href="https://rpmserver.com/roleplay-south" target="_blank">rpmserver.com</a></div>
+</footer>
+<script>
+let curLang = localStorage.getItem('rpm_lang') || 'ru';
+const i18n = {
+  ru: {
+    logo: 'Мэрия RPM <span><b>RPM ROLEPLAY SOUTH • rpmserver.com</b></span>',
+    title: 'Мэрия RPM',
+    desc: 'Официальный Discord сервер <b style="color:white">RPM ROLEPLAY SOUTH</b> — крупнейший сервер в RP сфере по Minecraft. IP: <b style="color:white">mc.rpmserver.com</b>',
+    posLabel: 'Должность',
+    posValue: '⚖️ Судья',
+    judgeTag: '⚖️ Судья',
+    flag: '🇷🇺 RU',
+    onlineLoad: 'загрузка...',
+    slots: 'слотов',
+    live: '🔄 live с rpmserver.com — обновление каждые 30с',
+    join: 'Присоединиться к Discord →',
+    play: '↗ Играть на SOUTH',
+    hello: 'Привет! Я <b style="color:white">Yumi_loom</b> из Мэрии RPM. Это моя визитка.',
+    copy: '📋 Копировать ник',
+    why: '<em>Почему именно мы</em> RPM ROLEPLAY SOUTH',
+    feat1: 'Мэрия RPM',
+    feat1p: 'Ивенты, законы штата и трушный RP.',
+    feat2p: 'Активное комьюнити 24/7.',
+    onlineLive: 'онлайн с игры: ',
+    updated: 'обновлено ',
+    onlineGames: ' игроков онлайн',
+    btnLang: '🇺🇦 UA'
+  },
+  uk: {
+    logo: 'Мерія RPM <span><b>RPM ROLEPLAY SOUTH • rpmserver.com</b></span>',
+    title: 'Мерія РПМ',
+    desc: 'Офіційний Discord сервер <b style="color:white">RPM ROLEPLAY SOUTH</b> — найбільший сервер в RP сфері по Minecraft. IP: <b style="color:white">mc.rpmserver.com</b>',
+    posLabel: 'Посада',
+    posValue: '⚖️ Суддя',
+    judgeTag: '⚖️ Суддя',
+    flag: '🇺🇦 UA',
+    onlineLoad: 'завантаження...',
+    slots: 'слотів',
+    live: '🔄 live з rpmserver.com — оновлення кожні 30с',
+    join: 'Приєднатись до Discord →',
+    play: '↗ Грати на SOUTH',
+    hello: 'Привіт! Я <b style="color:white">Yumi_loom</b> з Мерії РПМ. Це моя візитка.',
+    copy: '📋 Копіювати нік',
+    why: '<em>Чому саме ми</em> RPM ROLEPLAY SOUTH',
+    feat1: 'Мерія РПМ',
+    feat1p: 'Івенти, закони штату та трушний RP.',
+    feat2p: 'Активний ком\'юніті 24/7.',
+    onlineLive: 'онлайн з гри: ',
+    updated: 'оновлено ',
+    onlineGames: ' гравців онлайн',
+    btnLang: '🇷🇺 RU'
+  }
+};
+function applyLang(lang){
+  curLang = lang;
+  const d = i18n[lang];
+  document.documentElement.lang = lang;
+  document.getElementById('logoText').innerHTML = d.logo;
+  document.getElementById('serverTitle').innerHTML = '<span>— DISCORD SENSOR STYLE —</span>' + d.title;
+  document.getElementById('serverDesc').innerHTML = d.desc;
+  document.getElementById('flagChip').textContent = d.flag;
+  document.getElementById('onlineUpdate').textContent = d.live;
+  document.getElementById('joinBtn').textContent = d.join;
+  document.getElementById('playBtn').textContent = d.play;
+  document.getElementById('profileHello').innerHTML = d.hello;
+  document.getElementById('copyBtn').textContent = d.copy;
+  const whyEl = document.getElementById('whyTitle'); if(whyEl) whyEl.innerHTML = d.why;
+  const f1 = document.getElementById('feat1'); if(f1) f1.textContent = d.feat1;
+  const f1p = document.getElementById('feat1p'); if(f1p) f1p.textContent = d.feat1p;
+  const f2p = document.getElementById('feat2p'); if(f2p) f2p.textContent = d.feat2p;
+  document.getElementById('langBtn').textContent = d.btnLang;
+  document.getElementById('slotsWord').textContent = d.slots;
+  const posL = document.getElementById('posLabel'); if(posL) posL.textContent = d.posLabel;
+  const posV = document.getElementById('posValue'); if(posV) posV.textContent = d.posValue;
+  const jTag = document.getElementById('judgeTag'); if(jTag) jTag.textContent = d.judgeTag;
+  const ol = document.querySelector('.online-live');
+  if(ol && ol.childNodes[0]) ol.childNodes[0].textContent = d.onlineLive;
+  document.title = 'Yumi_loom — ' + d.title + ' | RPM ROLEPLAY SOUTH';
+  if(document.getElementById('onlineCount').textContent.includes('завантаження') || document.getElementById('onlineCount').textContent.includes('загрузка')) document.getElementById('onlineCount').textContent = d.onlineLoad;
+}
+function toggleLang(){
+  curLang = curLang === 'ru' ? 'uk' : 'ru';
+  localStorage.setItem('rpm_lang', curLang);
+  applyLang(curLang);
+  updateOnline();
+}
+async function updateOnline(){
+  const onlineEl = document.getElementById('onlineCount');
+  const totalEl = document.getElementById('totalCount');
+  const liveEl = document.getElementById('onlineLive');
+  const updEl = document.getElementById('lastUpdate');
+  const d = i18n[curLang];
+  try{
+    const r = await fetch('https://rpmserver.com/engine/ajax.php?type=react&path=online');
+    const j = await r.json();
+    if(j && typeof j.online !== 'undefined'){
+      onlineEl.textContent = j.online;
+      totalEl.textContent = j.total || '236';
+      if(liveEl) liveEl.textContent = j.online + ' / ' + j.total;
+      if(updEl) updEl.textContent = d.updated + new Date().toLocaleTimeString(curLang==='uk'?'uk-UA':'ru-RU');
+      document.getElementById('onlineUpdate').innerHTML = '🟢 live с rpmserver.com • ' + j.online + d.onlineGames;
+      if(curLang==='uk') document.getElementById('onlineUpdate').innerHTML = '🟢 live з rpmserver.com • ' + j.online + d.onlineGames;
+      return;
+    }
+  }catch(e){}
+  try{
+    const r2 = await fetch('https://rpmserver.com/engine/ajax.php?type=react&path=home&server=roleplay-south');
+    const j2 = await r2.json();
+    if(j2?.hero?.online?.online){
+      onlineEl.textContent = j2.hero.online.online;
+      totalEl.textContent = j2.hero.online.total;
+    }
+  }catch(e2){ onlineEl.textContent='235'; totalEl.textContent='236'; }
+}
+applyLang(curLang);
+updateOnline(); setInterval(updateOnline, 30000);
+document.querySelectorAll('.server-card, .profile-card, .widget-card, .feat').forEach((el,i)=>{
+  el.style.opacity=0; el.style.transform='translateY(12px)';
+  setTimeout(()=>{ el.style.transition='all .6s cubic-bezier(.2,.8,.2,1)'; el.style.opacity=1; el.style.transform='none'}, 90*i+60)
+})
+</script>
+</body>
+</html>
